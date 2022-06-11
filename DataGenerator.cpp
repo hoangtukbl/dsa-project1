@@ -1,4 +1,6 @@
 ﻿#include "DataGenerator.h"
+template <class T>
+
 void HoanVi(T &a, T &b)
 {
 	T x = a;
