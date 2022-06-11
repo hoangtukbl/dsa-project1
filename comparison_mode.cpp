@@ -105,6 +105,25 @@ void cout_2al(int order1 , int order2){
     }
 }
 
+
+void make_input_file(int order ,int size,string name)
+{
+    int* a = new int[size];
+    srand((unsigned int)time(NULL));
+
+	for (int i = 0; i < size; i++)
+	{
+		a[i] = rand()%size;
+	}
+    ofstream inp;
+    inp.open(name);
+    inp << size << endl;
+    for (int i = 0 ; i < size ; i++ ){
+        inp << a[i] << " ";
+    }
+    inp.close();
+}
+
 void ComparisonMode(int temp_argc , char* temp_argv[]){
 
     cout << "COMPARE MODE"<<endl;
@@ -120,12 +139,15 @@ void ComparisonMode(int temp_argc , char* temp_argv[]){
         cout << "---------------------------------------------"<<endl;
         cout_output(2);
     }
+
+    //check command5
     if(temp_argc == 6){
         int in_size = atoi(temp_argv[4]);
         int in_order = input_order(temp_argv[5]);
         cout << "Input size: " << in_size<<endl;
         cout_input(in_order);
         cout_output(2);
+        make_input_file(in_order , in_size,"input.txt");
 
     }
 }
