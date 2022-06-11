@@ -181,6 +181,7 @@ void AlgorithmMode(int temp_argc ,char* temp_argv[]){
         cout << "Input size: " << in_size<<endl;
         cout_input(in_order);
         cout_output(out_order);
+        make_input_file(in_order,in_size,"input.txt");
     }
         
     else{
