@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include "DataGenerator.h"
+#include "comparison_mode.h"
 using namespace std;
 
 int output_order(string order);
