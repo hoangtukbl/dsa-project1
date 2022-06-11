@@ -119,6 +119,26 @@ void make_input_file(int order ,int size,string name)
         inp << a[i] << " ";
     }
     inp.close();
+
+    delete a;
+}
+
+void read_input_file(string name){
+    ifstream inp_file;
+    inp_file.open(name);
+
+    int size ;
+    inp_file >> size;
+
+    int* a = new int[size];
+    for (int i = 0 ; i < size ; i++){
+        inp_file >> a[i];
+    }
+
+    for (int i = 0 ; i < size ; i++){
+        cout << a[i] << " ";
+    }
+
 }
 
 void ComparisonMode(int temp_argc , char* temp_argv[]){
@@ -135,6 +155,7 @@ void ComparisonMode(int temp_argc , char* temp_argv[]){
 
         cout << "---------------------------------------------"<<endl;
         cout_output(2);
+        read_input_file(file_name);
     }
 
     //check command5
