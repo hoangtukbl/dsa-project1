@@ -109,12 +109,9 @@ void cout_2al(int order1 , int order2){
 void make_input_file(int order ,int size,string name)
 {
     int* a = new int[size];
-    srand((unsigned int)time(NULL));
 
-	for (int i = 0; i < size; i++)
-	{
-		a[i] = rand()%size;
-	}
+    GenerateData(a,size,order);
+
     ofstream inp;
     inp.open(name);
     inp << size << endl;
