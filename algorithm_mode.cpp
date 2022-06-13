@@ -10,28 +10,59 @@ int output_order(string order){
     return -1;
 }
 
-void cout_output(int order){
-    switch (order)
+void cout_comp(int al, int size, int * a){
+
+    switch (al)
     {
     case 0:{
-        cout<<"Running time: "<<endl;
+        // cout << a;
+        SelectionSort_comp(a,size);
         break;
-    }
+    } 
     case 1:{
-        cout<<"Comparisions: "<<endl;
+        InsertionSort_comp(a, size);
         break;
     }
     case 2:{
-        cout<<"Running time: "<<endl;
-        cout<<"Comparisions: "<<endl;
+        cout << "Algorithm: Bubble Sort"  << endl;
         break;
     }
-    
-    default:{
-        cout << "wrong input";
+    case 3:{
+        cout << "Algorithm: Heap Sort"  << endl;
         break;
     }
+    case 4:{
+        cout << "Algorithm: Merge Sort"  << endl;
+        break;
     }
+    case 5:{
+        cout << "Algorithm: Quick Sort"  << endl;
+        break;
+    }
+    case 6:{
+        RadixSort_comp(a,size);
+        break;
+    }
+    case 7:{
+        ShakerSort_comp(a,size);
+        break;
+    }
+    case 8:{
+        cout << "Algorithm: Shell Sort"  << endl;
+        break;
+    }
+    case 9:{
+        CountingSort_comp(a,  size);
+        break;
+    }
+    case 10:{
+        FlashSort_comp(a, size);
+        break;
+    }
+    default:
+        cout << "Wrong algorithm";
+    }
+
 }
 
 int input_order(string order){
@@ -47,27 +78,79 @@ int input_order(string order){
 
 }
 
-void cout_input(int order){
+void cout_input(int order,int size,string name){
     switch (order)
     {
     case 0:{
         cout << "Input order:  Randomized data"<<endl;
         cout <<"---------------------------------"<<endl;
+        int* a = new int[size];
+
+        GenerateData(a,size,order);
+
+        ofstream inp;
+        inp.open(name);
+        inp << size << endl;
+        for (int i = 0 ; i < size ; i++ ){
+            inp << a[i] << " ";
+        }
+        inp.close();
+
+        delete a;
         break;
     }
     case 1:{
         cout << "Input order: Nearly sorted data" <<endl;
         cout <<"---------------------------------"<<endl;
+        int* a = new int[size];
+
+        GenerateData(a,size,order);
+
+        ofstream inp;
+        inp.open(name);
+        inp << size << endl;
+        for (int i = 0 ; i < size ; i++ ){
+            inp << a[i] << " ";
+        }
+        inp.close();
+
+        delete a;
         break;
     }
     case 2:{
         cout << "Input order: Sorted data"<<endl;
         cout <<"---------------------------------"<<endl;
+        int* a = new int[size];
+
+        GenerateData(a,size,order);
+
+        ofstream inp;
+        inp.open(name);
+        inp << size << endl;
+        for (int i = 0 ; i < size ; i++ ){
+            inp << a[i] << " ";
+        }
+        inp.close();
+
+        delete a;
         break;
     }
     case 3:{
         cout << "Input order: Reverse sorted data"<<endl;
         cout <<"---------------------------------"<<endl;
+        int* a = new int[size];
+
+        GenerateData(a,size,order);
+
+        ofstream inp;
+        inp.open(name);
+        inp << size << endl;
+        for (int i = 0 ; i < size ; i++ ){
+            inp << a[i] << " ";
+        }
+        inp.close();
+
+        delete a;
         break;
     }
     default:{
@@ -179,9 +262,20 @@ void AlgorithmMode(int temp_argc ,char* temp_argv[]){
         in_order = input_order(temp_argv[4]);
         out_order = output_order(temp_argv[5]);
         cout << "Input size: " << in_size<<endl;
-        cout_input(in_order);
-        cout_output(out_order);
-        make_input_file(in_order,in_size,"input.txt");
+        cout_input(in_order,in_size,"input.txt");
+
+        if(out_order == 0 || out_order == 2){
+            cout<<"Running time: ";
+
+        }
+        if(out_order == 1 || out_order == 2){
+            int * a;
+            a = read_input_file("input.txt");
+            cout_comp(al_name,in_size,a);
+
+        }
+        
+        
     }
         
     else{
@@ -194,18 +288,47 @@ void AlgorithmMode(int temp_argc ,char* temp_argv[]){
         cout << "Input size: "<<in_size<<endl;
         for(int i = 0 ; i < 4 ; i++ ){
             cout<<endl;
-            cout_input(i);
-            cout_output(out_order);
+            // char temp_i = itoc(i);
+            string temp_name = "input.txt" ;
+            // strcat(temp_name,temp_i);
+            // strcat(temp_name,".txt");
+            cout_input(i,in_size,temp_name);
+
+            if(out_order == 0 || out_order == 2){
+            cout<<"Running time: "<<endl;
+            }
+            if(out_order == 1 || out_order == 2){
+                int * a;
+                a = read_input_file(temp_name);
+                cout_comp(al_name,in_size,a);
+
+            }
         }
     }
     else //command1 
     { 
         in_file_name = temp_argv[3];
         out_order = output_order(temp_argv[4]);
+
+            ifstream inp_file;
+            inp_file.open(in_file_name);
+
+            int in_size ;
+            inp_file.close();
+            
+
+
         cout << "Input file: "<<in_file_name << endl;
-        cout << "Input size: "<<endl;
+        cout << "Input size: "<<in_size << endl;
         cout << "---------------------------------------------"<<endl;
-        cout_output(out_order);
+        if(out_order == 0 || out_order == 2){
+            cout<<"Running time: "<<endl;
+        }
+        if(out_order == 1 || out_order == 2){
+            int * a;
+            a = read_input_file(in_file_name);
+            cout_comp(al_name,in_size,a);
+        }
     }
     
 
