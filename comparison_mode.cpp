@@ -106,24 +106,9 @@ void cout_2al(int order1 , int order2){
 }
 
 
-void make_input_file(int order ,int size,string name)
-{
-    int* a = new int[size];
+ 
 
-    GenerateData(a,size,order);
-
-    ofstream inp;
-    inp.open(name);
-    inp << size << endl;
-    for (int i = 0 ; i < size ; i++ ){
-        inp << a[i] << " ";
-    }
-    inp.close();
-
-    delete a;
-}
-
-void read_input_file(string name){
+int* read_input_file(string name){
     ifstream inp_file;
     inp_file.open(name);
 
@@ -135,9 +120,11 @@ void read_input_file(string name){
         inp_file >> a[i];
     }
 
-    for (int i = 0 ; i < size ; i++){
-        cout << a[i] << " ";
-    }
+    inp_file.close();
+    // for (int i = 0 ; i < size ; i++){
+    //     cout << a[i] << " ";
+    // }
+    return a;
 
 }
 
@@ -154,8 +141,24 @@ void ComparisonMode(int temp_argc , char* temp_argv[]){
         cout << "Input file: "<<file_name<<endl;
 
         cout << "---------------------------------------------"<<endl;
-        cout_output(2);
-        read_input_file(file_name);
+        
+            // int * a; //runningtime
+            // a = read_input_file("input.txt");
+            // cout_comp(al_name,in_size,a);
+            // delete a;
+            // cout<<"Running time: "<<endl;
+        
+            ifstream inp_file;
+            inp_file.open(file_name);
+
+            int in_size ;
+            inp_file.close();
+
+            int * a;
+            a = read_input_file(file_name);
+            cout_comp(al_name1,in_size,a);
+            delete a;
+        
     }
 
     //check command5
@@ -163,9 +166,20 @@ void ComparisonMode(int temp_argc , char* temp_argv[]){
         int in_size = atoi(temp_argv[4]);
         int in_order = input_order(temp_argv[5]);
         cout << "Input size: " << in_size<<endl;
-        cout_input(in_order);
-        cout_output(2);
-        make_input_file(in_order , in_size,"input.txt");
+        cout_input(in_order, in_size,"input.txt");
+            
+            // int * a; //runningtime
+            // a = read_input_file("input.txt");
+            // cout_comp(al_name,in_size,a);
+            // delete a;
+            // cout<<"Running time: "<<endl;
+        
+            cout << al_name1;
+            int * a;
+            a = read_input_file("input.txt");
+            cout_comp(al_name1,in_size,a);
+            delete a;
+        
 
     }
 }
