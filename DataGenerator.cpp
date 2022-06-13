@@ -54,7 +54,7 @@ void GenerateNearlySortedData(int* a, int n)
 		HoanVi(a[r1], a[r2]);
 	}
 }
-
+ 
 void GenerateData(int* a, int n, int dataType)
 {
 	switch (dataType)
@@ -62,13 +62,13 @@ void GenerateData(int* a, int n, int dataType)
 	case 0:	// ngẫu nhiên
 		GenerateRandomData(a, n);
 		break;
-	case 1:	// có thứ tự
+	case 2:	// có thứ tự
 		GenerateSortedData(a, n);
 		break;
-	case 2:	// có thứ tự ngược
+	case 3:	// có thứ tự ngược
 		GenerateReverseData(a, n);
 		break;
-	case 3:	// gần như có thứ tự
+	case 1:	// gần như có thứ tự
 		GenerateNearlySortedData(a, n);
 		break;
 	default:
