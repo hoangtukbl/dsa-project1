@@ -501,13 +501,13 @@ void mergeSort_comp(int* a, int const begin, int const end, int& comp)
 	mergeArray_comp(a, begin, mid, end, comp);
 
 }
-void mergeSort_main_comp(int* a , int size)
+void mergeSort_main_comp(int* arr , int size)
 {
 	int begin = 0 ;
 	int end = size - 1;
 	int comp = 0;
-	mergeSort_comp(a, begin, mid, comp);
-	printArray(a, size);
+	mergeSort_comp(arr, begin, end, comp);
+	printArray(arr, size);
 	cout << "Comparision: " << comp<<endl;
 }
 
