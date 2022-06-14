@@ -174,7 +174,7 @@ void ComparisonMode(int temp_argc , char* temp_argv[]){
             // delete a;
             // cout<<"Running time: "<<endl;
         
-            cout << al_name1;
+            
             int * a;
             a = read_input_file("input.txt");
             cout_comp(al_name1,in_size,a);
