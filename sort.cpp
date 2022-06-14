@@ -355,7 +355,7 @@ void quickSort_comp(int* arr, int n) {
 	cout << "Comparision: " << comp <<endl;
 }
 
-int shellSort_comp(int* arr, int n)
+void shellSort_comp(int* arr, int n)
 {
 	long long comp = 0;
 	// Start with a big gap, then reduce the gap
@@ -373,7 +373,7 @@ int shellSort_comp(int* arr, int n)
 	}
 	printArray(arr, n);
 	cout << "Comparision: " << comp<<endl;
-	return 0;
+	
 
 }
 
@@ -762,5 +762,229 @@ void FlashSort_time(int* array, int size)
 	printArray(array, size);
 	time = (double)(end - begin) / (CLOCKS_PER_SEC / 1000);
 	cout << "Running time: " << time << " ms" << endl;
+}
+
+void shellSort_time(int* arr, int n)
+{
+	clock_t begin, end;
+	double time;
+	begin = clock();
+	// Start with a big gap, then reduce the gap
+	for (int gap = n / 2; gap > 0; gap /= 2)
+	{
+		for (int i = gap; i < n; i += 1)
+		{
+			int temp = arr[i];
+
+			int j;
+			for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+				arr[j] = arr[j - gap];
+			arr[j] = temp;
+		}
+	}
+	end = clock();
+	
+	printArray(arr, n);
+	time = (double)(end - begin) / (CLOCKS_PER_SEC / 1000);
+	cout << "Running time: " << time << " ms" << endl;
+}
+
+void heapify_time(int* a, int n, int i)
+{
+
+	// Initialize largest as root
+	int largest = i;
+
+	// left = 2*i + 1
+	int l = 2 * i + 1;
+
+	// right = 2*i + 2
+	int r = 2 * i + 2;
+
+	// If left child is larger than root
+	if (l < n && a[l] > a[largest])
+		largest = l;
+
+	// If right child is larger than largest
+	// so far
+	if (r < n && a[r] > a[largest])
+		largest = r;
+
+	// If largest is not root
+	if (largest != i) {
+		swap(a[i], a[largest]);
+
+		// Recursively heapify the affected
+		// sub-tree
+		heapify_time(a, n, largest);
+	}
+}
+// Main function to do heap sort
+void heapSort_time(int* a, int n)
+{
+	clock_t begin, end;
+	double time;
+	begin = clock();
+	// Build heap (rearrange array)
+	for (int i = n / 2 - 1; i >= 0; i--)
+		heapify_time(a, n, i);
+
+	// One by one extract an element
+	// from heap
+	for (int i = n - 1; i > 0; i--) {
+
+		// Move current root to end
+		swap(a[0], a[i]);
+
+		// call max heapify on the reduced heap
+		heapify_time(a, i, 0);
+	}
+	end = clock();
+	
+	printArray(a, n);
+	time = (double)(end - begin) / (CLOCKS_PER_SEC / 1000);
+	cout << "Running time: " << time << " ms" << endl;
+	
+}
+
+void mergeArray_time(int* a, int const begin, int const mid, int const end)
+{
+	//Create count variables
+	int l = mid - begin + 1, r = end - mid, m = begin;
+	int il = 0, ir = 0;
+
+	//Create subarrays
+	int* Left, * Right;
+	Left = new int[l];
+	Right = new int[r];
+
+	//Enter numbers to subarray
+	for (int i = 0; i < l; i++)
+	{
+		Left[i] = a[i + begin];
+	}
+
+	for (int j = 0; j < r; j++)
+	{
+		Right[j] = a[mid + 1 + j];
+	}
+
+	//Sorting to Merge array
+	while (il < l && ir < r)
+	{
+		if (Left[il] <= Right[ir])
+		{
+			a[m] = Left[il];
+			il++;
+		}
+		else
+		{
+			a[m] = Right[ir];
+			ir++;
+		}
+		m++;
+	}
+
+	//Input the remaining elements if there is any
+	while (il < l)
+	{
+		a[m] = Left[il];
+		il++; m++;
+	}
+
+	while (ir < r)
+	{
+		a[m] = Right[ir];
+		ir++; m++;
+	}
+
+}
+//Main merge sort function
+void mergeSort_time(int* a, int const begin, int const end)
+{
+	//Return if array is divided into the smallest element
+	if (begin >= end)
+		return;
+
+	int mid = begin + (end - begin) / 2;
+	mergeSort_time(a, begin, mid);
+	mergeSort_time(a, mid + 1, end);
+
+	//Merge and sort subarrays
+	mergeArray_time(a, begin, mid, end);
+}
+void mergeSort_main_time(int* arr , int size)
+{
+	int begin = 0 ;
+	int end = size - 1;
+	int comp = 0;
+	clock_t start,stop;
+	double time;
+
+	start = clock();
+	mergeSort_comp(arr, begin, end, comp);
+	printArray(arr, size);
+	cout << "Comparision: " << comp<<endl;
+
+	stop = clock();
+	printArray(arr,size);
+	time = (double)(stop - start) / (CLOCKS_PER_SEC / 1000);
+	cout << "Running time: "<<time << "ms"<<endl;
+}
+
+void quickSort1_time(int* arr, int l, int r) {
+
+	int p = arr[(l + r) / 2];//lay pivot la so o giua
+
+	int i = l, j = r;
+
+	while (i < j) {//i<j: chua duyet het mang
+		while (arr[i] < p)
+		{
+			i++;
+		}
+		while (arr[j] > p) {
+			j--;
+		}
+		if (i <= j)
+		{
+			swap(arr[i], arr[j]);
+			i++;
+			j--;
+		}
+	}
+	if (i < r) {
+		quickSort1_time(arr, i, r);
+	}
+	if (l < j) {
+		quickSort1_time(arr, l, j);
+	}
+}
+void quickSort_time(int* arr, int n) {
+	clock_t start, end;
+	start = clock();
+	quickSort1_time(arr, 0, n - 1);
+	end = clock();
+	double time = (end - start) / (CLOCKS_PER_SEC / 1000);
+	printArray(arr, n);
+	cout << "Running time: " << time << "ms"<<endl;
+}
+
+void bubbleSort_time(int arr[], int n)
+{
+	clock_t start, end;
+	start = clock();
+	int i, j;
+	for (i = 0;i < n - 1; i++)
+
+		// Last i elements are already 
+		// in place
+		for (j = 0;j < n - i - 1; j++)
+			if (arr[j] > arr[j + 1])
+				swap(arr[j], arr[j + 1]);
+	end = clock();
+	double time = (end - start) / (CLOCKS_PER_SEC / 1000);
+	printArray(arr, n);
+	cout << "Running time: " << time <<"ms"<<endl;
 }
 
