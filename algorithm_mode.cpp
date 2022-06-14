@@ -71,47 +71,47 @@ void cout_time(int al, int size, int * a){
     {
     case 0:{
         // cout << a;
-        SelectionSort_comp(a,size);
+        SelectionSort_time(a,size);
         break;
     } 
     case 1:{
-        InsertionSort_comp(a, size);
+        InsertionSort_time(a, size);
         break;
     }
     case 2:{
-        bubbleSort_comp(a, size);
+        bubbleSort_time(a, size);
         break;
     }
     case 3:{
-        heapSort_comp(a, size);
+        heapSort_time(a, size);
         break;
     }
     case 4:{
-        mergeSort_main_comp(a ,size);
+        mergeSort_main_time(a ,size);
         break;
     }
     case 5:{
-        quickSort_comp(a, size);
+        quickSort_time(a, size);
         break;
     }
     case 6:{
-        RadixSort_comp(a,size);
+        RadixSort_time(a,size);
         break;
     }
     case 7:{
-        ShakerSort_comp(a,size);
+        ShakerSort_time(a,size);
         break;
     }
     case 8:{
-        shellSort_comp(a, size);
+        shellSort_time(a, size);
         break;
     }
     case 9:{
-        CountingSort_comp(a,  size);
+        CountingSort_time(a,  size);
         break;
     }
     case 10:{
-        FlashSort_comp(a, size);
+        FlashSort_time(a, size);
         break;
     }
     default:
