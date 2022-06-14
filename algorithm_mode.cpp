@@ -24,19 +24,19 @@ void cout_comp(int al, int size, int * a){
         break;
     }
     case 2:{
-        cout << "Algorithm: Bubble Sort"  << endl;
+        bubbleSort_comp(a, size);
         break;
     }
     case 3:{
-        cout << "Algorithm: Heap Sort"  << endl;
+        heapSort_comp(a, size);
         break;
     }
     case 4:{
-        cout << "Algorithm: Merge Sort"  << endl;
+        mergeSort_main_comp(a ,size);
         break;
     }
     case 5:{
-        cout << "Algorithm: Quick Sort"  << endl;
+        quickSort_comp(a, size);
         break;
     }
     case 6:{
@@ -48,7 +48,62 @@ void cout_comp(int al, int size, int * a){
         break;
     }
     case 8:{
-        cout << "Algorithm: Shell Sort"  << endl;
+        shellSort_comp(a, size);
+        break;
+    }
+    case 9:{
+        CountingSort_comp(a,  size);
+        break;
+    }
+    case 10:{
+        FlashSort_comp(a, size);
+        break;
+    }
+    default:
+        cout << "Wrong algorithm";
+    }
+
+}
+
+void cout_time(int al, int size, int * a){
+
+    switch (al)
+    {
+    case 0:{
+        // cout << a;
+        SelectionSort_comp(a,size);
+        break;
+    } 
+    case 1:{
+        InsertionSort_comp(a, size);
+        break;
+    }
+    case 2:{
+        bubbleSort_comp(a, size);
+        break;
+    }
+    case 3:{
+        heapSort_comp(a, size);
+        break;
+    }
+    case 4:{
+        mergeSort_main_comp(a ,size);
+        break;
+    }
+    case 5:{
+        quickSort_comp(a, size);
+        break;
+    }
+    case 6:{
+        RadixSort_comp(a,size);
+        break;
+    }
+    case 7:{
+        ShakerSort_comp(a,size);
+        break;
+    }
+    case 8:{
+        shellSort_comp(a, size);
         break;
     }
     case 9:{
