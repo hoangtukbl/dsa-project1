@@ -32,4 +32,7 @@ int shellSort_comp(int* arr, int n);
 void heapify_comp(int* a, int n, int i, int& comp);
 void heapSort_comp(int* a, int n);
 
+void mergeArray_comp(int* a, int const begin, int const mid, int const end, int& comp);
+void mergeSort_comp(int* a, int const begin, int const end, int& comp);
+void mergeSort_main_comp(int* arr , int size);
 
