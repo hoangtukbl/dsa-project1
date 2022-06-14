@@ -15,6 +15,5 @@ int main(int argc, char *argv[]){
         ComparisonMode(argc,argv);
     else    
         cout << "wrong input";
-        //ll
     return 0;
 }   
