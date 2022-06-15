@@ -24,16 +24,16 @@ void RadixSort_comp(int* array, int size);
 
 void bubbleSort_comp(int arr[], int n);
 
-void quickSort1_comp(int* arr, int l, int r, int& comp);
+void quickSort1_comp(int* arr, int l, int r, long long& comp);
 void quickSort_comp(int* arr, int n);
 
 void shellSort_comp(int* arr, int n);
 
-void heapify_comp(int* a, int n, int i, int& comp);
+void heapify_comp(int* a, int n, int i, long long& comp);
 void heapSort_comp(int* a, int n);
 
-void mergeArray_comp(int* a, int const begin, int const mid, int const end, int& comp);
-void mergeSort_comp(int* a, int const begin, int const end, int& comp);
+void mergeArray_comp(int* a, int const begin, int const mid, int const end, long long& comp);
+void mergeSort_comp(int* a, int const begin, int const end, long long& comp);
 void mergeSort_main_comp(int* arr , int size);
 
 void SelectionSort_time(int* array, int size);
