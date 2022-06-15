@@ -306,7 +306,7 @@ void FlashSort_comp(int* array, int size)
 
 void bubbleSort_comp(int arr[], int n)
 {
-	int comp = 0;
+	long long comp = 0;
 	int i, j;
 	for (i = 0;++comp && i < n - 1; i++)
 
@@ -320,7 +320,7 @@ void bubbleSort_comp(int arr[], int n)
 	// cout << "\nFinish!!";
 }
 
-void quickSort1_comp(int* arr, int l, int r, int& comp) {
+void quickSort1_comp(int* arr, int l, int r, long long& comp) {
 
 	int p = arr[(l + r) / 2];//lay pivot la so o giua
 
@@ -349,7 +349,7 @@ void quickSort1_comp(int* arr, int l, int r, int& comp) {
 	}
 }
 void quickSort_comp(int* arr, int n) {
-	int comp = 0;
+	long long comp = 0;
 	quickSort1_comp(arr, 0, n - 1, comp);
 	printArray(arr, n);
 	cout << "Comparision: " << comp <<endl;
@@ -381,7 +381,7 @@ void shellSort_comp(int* arr, int n)
 // To heapify a subtree rooted with node i
 // which is an index in a.
 // n is size of heap
-void heapify_comp(int* a, int n, int i, int& comp)
+void heapify_comp(int* a, int n, int i, long long& comp)
 {
 
 	// Initialize largest as root
@@ -414,7 +414,7 @@ void heapify_comp(int* a, int n, int i, int& comp)
 // Main function to do heap sort
 void heapSort_comp(int* a, int n)
 {
-	int comp = 0;
+	long long comp = 0;
 	// Build heap (rearrange array)
 	for (int i = n / 2 - 1; i >= 0; i--)
 		heapify_comp(a, n, i, comp);
@@ -434,7 +434,7 @@ void heapSort_comp(int* a, int n)
 	cout << "Comparision: " << comp<<endl;
 }
 
-void mergeArray_comp(int* a, int const begin, int const mid, int const end, int& comp)
+void mergeArray_comp(int* a, int const begin, int const mid, int const end, long long& comp)
 {
 	//Create count variables
 	int l = mid - begin + 1, r = end - mid, m = begin;
@@ -487,7 +487,7 @@ void mergeArray_comp(int* a, int const begin, int const mid, int const end, int&
 
 }
 //Main merge sort function
-void mergeSort_comp(int* a, int const begin, int const end, int& comp)
+void mergeSort_comp(int* a, int const begin, int const end, long long& comp)
 {
 	//Return if array is divided into the smallest element
 	if (++ comp && begin >= end)
@@ -505,7 +505,7 @@ void mergeSort_main_comp(int* arr , int size)
 {
 	int begin = 0 ;
 	int end = size - 1;
-	int comp = 0;
+	long long comp = 0;
 	mergeSort_comp(arr, begin, end, comp);
 	printArray(arr, size);
 	cout << "Comparision: " << comp<<endl;
@@ -922,9 +922,7 @@ void mergeSort_main_time(int* arr , int size)
 	double time;
 
 	start = clock();
-	mergeSort_comp(arr, begin, end, comp);
-	printArray(arr, size);
-	cout << "Comparision: " << comp<<endl;
+	mergeSort_time(arr, begin, end);
 
 	stop = clock();
 	printArray(arr,size);
