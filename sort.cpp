@@ -786,7 +786,7 @@ void shellSort_time(int* arr, int n)
 	
 	printArray(arr, n);
 	time = (double)(end - begin) / (CLOCKS_PER_SEC / 1000);
-	cout << "Running time: " << time << " ms" << endl;
+	cout << "Running time: " << (end - begin) / (CLOCKS_PER_SEC / 1000) << " ms" << endl;
 }
 
 void heapify_time(int* a, int n, int i)
