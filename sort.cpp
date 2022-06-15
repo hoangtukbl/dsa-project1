@@ -965,7 +965,7 @@ void quickSort_time(int* arr, int n) {
 	end = clock();
 	double time = (end - start) / (CLOCKS_PER_SEC / 1000);
 	printArray(arr, n);
-	cout << "Running time: " << time << "ms"<<endl;
+	cout << "Running time: " << time <<"ms"<<endl;
 }
 
 void bubbleSort_time(int arr[], int n)
