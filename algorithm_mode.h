@@ -13,6 +13,8 @@ int output_order(string order);
 
 void cout_comp(int al, int size, int * a);
 
+void cout_time(int al, int size, int * a);
+
 int input_order(string order);
 
 void cout_input(int order,int size , string name);
