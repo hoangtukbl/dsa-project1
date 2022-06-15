@@ -246,49 +246,49 @@ void cout_al(int order){
     switch (order)
     {
     case 0:{
-        cout << "Algorithm: Selection Sort"  << endl;
+        cout << "Selection Sort"  ;
         break;
     }
     
     case 1:{
-        cout << "Algorithm: Insertion Sort"  << endl;
+        cout << "Insertion Sort" ;
         break;
     }
     case 2:{
-        cout << "Algorithm: Bubble Sort"  << endl;
+        cout << "Bubble Sort"  ;
         break;
     }
     case 3:{
-        cout << "Algorithm: Heap Sort"  << endl;
+        cout << "Heap Sort"  ;
         break;
     }
     case 4:{
-        cout << "Algorithm: Merge Sort"  << endl;
+        cout << "Merge Sort" ;
         break;
     }
     
     case 5:{
-        cout << "Algorithm: Quick Sort"  << endl;
+        cout << "Quick Sort";
         break;
     }
     case 6:{
-        cout << "Algorithm: Radix Sort"  << endl;
+        cout << "Radix Sort"  ;
         break;
     }
     case 7:{
-        cout << "Algorithm: Shaker Sort"  << endl;
+        cout << "Shaker Sort"  ;
         break;
     }
     case 8:{
-        cout << "Algorithm: Shell Sort"  << endl;
+        cout << "Shell Sort"  ;
         break;
     }
     case 9:{
-        cout << "Algorithm: Counting Sort"  << endl;
+        cout << "Counting Sort"  ;
         break;
     }
     case 10:{
-        cout << "Algorithm: Flash Sort"  << endl;
+        cout << "Flash Sort"  ;
         break;
     }
     default:
@@ -307,7 +307,9 @@ void AlgorithmMode(int temp_argc ,char* temp_argv[]){
     int in_size = 0;
     string in_file_name;
     int al_name = al_order(temp_argv[2]);
+    cout << "Algorithm: ";
     cout_al(al_name);
+    cout << endl;
     int in_order = -1;
     int out_order = -1;
 
