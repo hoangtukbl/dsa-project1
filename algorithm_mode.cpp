@@ -320,7 +320,9 @@ void AlgorithmMode(int temp_argc ,char* temp_argv[]){
         cout_input(in_order,in_size,"input.txt");
 
         if(out_order == 0 || out_order == 2){
-            cout<<"Running time: ";
+            int * a;
+                a = read_input_file("input.txt");
+            cout_time(al_name,in_size,a);
 
         }
         if(out_order == 1 || out_order == 2){
@@ -344,13 +346,15 @@ void AlgorithmMode(int temp_argc ,char* temp_argv[]){
         for(int i = 0 ; i < 4 ; i++ ){
             cout<<endl;
             // char temp_i = itoc(i);
-            string temp_name = "input.txt" ;
+            string temp_name = "input.txt" + i;
             // strcat(temp_name,temp_i);
             // strcat(temp_name,".txt");
             cout_input(i,in_size,temp_name);
 
             if(out_order == 0 || out_order == 2){
-            cout<<"Running time: "<<endl;
+                int * a;
+                a = read_input_file(temp_name);
+            cout_time(al_name,in_size,a);
             }
             if(out_order == 1 || out_order == 2){
                 int * a;
@@ -369,6 +373,7 @@ void AlgorithmMode(int temp_argc ,char* temp_argv[]){
             inp_file.open(in_file_name);
 
             int in_size ;
+            inp_file >> in_size;
             inp_file.close();
             
 
@@ -376,8 +381,9 @@ void AlgorithmMode(int temp_argc ,char* temp_argv[]){
         cout << "Input file: "<<in_file_name << endl;
         cout << "Input size: "<<in_size << endl;
         cout << "---------------------------------------------"<<endl;
-        if(out_order == 0 || out_order == 2){
-            cout<<"Running time: "<<endl;
+        if(out_order == 0 || out_order == 2){int * a;
+                a = read_input_file(in_file_name);
+            cout_time(al_name,in_size,a);
         }
         if(out_order == 1 || out_order == 2){
             int * a;
