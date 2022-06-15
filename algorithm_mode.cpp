@@ -345,10 +345,29 @@ void AlgorithmMode(int temp_argc ,char* temp_argv[]){
         cout << "Input size: "<<in_size<<endl;
         for(int i = 0 ; i < 4 ; i++ ){
             cout<<endl;
-            // char temp_i = itoc(i);
-            string temp_name = "input.txt" + i;
-            // strcat(temp_name,temp_i);
-            // strcat(temp_name,".txt");
+            string temp_name;
+            switch (i)
+            {
+            case 0:{
+                temp_name = "input_1.txt";
+                break;
+            }
+            case 1:{
+                temp_name = "input_2.txt";
+                break;
+            }
+            case 2:{
+                temp_name = "input_3.txt";
+                break;
+            }
+            case 3:{
+                temp_name = "input_4.txt";
+                break;
+            }
+            
+            default:
+                break;
+            }
             cout_input(i,in_size,temp_name);
 
             if(out_order == 0 || out_order == 2){
