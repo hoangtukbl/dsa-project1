@@ -341,10 +341,10 @@ void quickSort1_comp(int* arr, int l, int r, long long& comp) {
 			j--;
 		}
 	}
-	if (i < r) {
+	if (++comp && i < r) {
 		quickSort1_comp(arr, i, r, comp);
 	}
-	if (l < j) {
+	if (++comp && l < j) {
 		quickSort1_comp(arr, l, j, comp);
 	}
 }
