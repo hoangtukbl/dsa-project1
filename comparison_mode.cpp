@@ -142,21 +142,35 @@ void ComparisonMode(int temp_argc , char* temp_argv[]){
 
         cout << "---------------------------------------------"<<endl;
         
-            // int * a; //runningtime
-            // a = read_input_file("input.txt");
-            // cout_comp(al_name,in_size,a);
-            // delete a;
-            // cout<<"Running time: "<<endl;
-        
             ifstream inp_file;
             inp_file.open(file_name);
 
             int in_size ;
+            inp_file>>in_size;
             inp_file.close();
-
+            
             int * a;
             a = read_input_file(file_name);
+            cout_al(al_name1);
+            cout<<" ";
+            cout_time(al_name1,in_size,a);
+            a = read_input_file(file_name);
+            cout_al(al_name2);
+            cout<<" ";
+            cout_time(al_name2,in_size,a);
+            
+            
+
+        
+            a = read_input_file(file_name);
+            cout_al(al_name1);
+            cout<<" ";
             cout_comp(al_name1,in_size,a);
+            a = read_input_file(file_name);
+            cout_al(al_name2);
+            cout<<" ";
+            cout_comp(al_name2,in_size,a);
+
             delete a;
         
     }
@@ -177,7 +191,7 @@ void ComparisonMode(int temp_argc , char* temp_argv[]){
             cout_al(al_name2);
             cout<<" ";
             cout_time(al_name2,in_size,a);
-            
+            delete a;           
         
             
             
