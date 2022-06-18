@@ -133,7 +133,7 @@ int input_order(string order){
 
 }
 
-void cout_input(int order,int size,string name){
+void cout_input(int order,int size,string name){    
     switch (order)
     {
     case 0:{
