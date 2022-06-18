@@ -43,14 +43,13 @@ void SelectionSort_comp(int* array, int size)
 void InsertionSort_comp(int* array, int size)
 {
 	long long countCompare = 0;
-	int temp = array[0], v, i = 1, j;
+	int v, i = 1, j;
 	
-	array[0] = -100;
 	while (++countCompare && i < size)
 	{
 		v = array[i];
 		j = i - 1;
-		while(++countCompare && array[j] > v)
+		while(++countCompare && j >= 0 && ++countCompare && array[j] > v)
 		{ 
 			array[j + 1] = array[j];
 			--j;
@@ -58,13 +57,6 @@ void InsertionSort_comp(int* array, int size)
 		array[j + 1] = v;
 		++i;
 	} 
-	j = 1;
-	while(++countCompare && array[j] < temp)
-	{  
-		array[j - 1] = array[j];
-		++j;
-	} 
-	array[j - 1] = temp;
 	
 	printArray(array, size);
 	cout << "Comparisions: " << countCompare << endl;
@@ -143,7 +135,7 @@ void ShakerSort_comp(int* array, int size)
 			++j;
 		}
 		if (++countCompare && !swapped)
-			return;
+			break;
 		right = k;
 		swapped = 0;
 		j = right;
@@ -158,7 +150,7 @@ void ShakerSort_comp(int* array, int size)
 			--j;
 		}
 		if (++countCompare && !swapped)
-			return;
+			break;
 		left = k;
 		++i;
 	}
@@ -546,28 +538,20 @@ void InsertionSort_time(int* array, int size)
 {
 	clock_t begin, end;
 	double time;
-	int temp = array[0], v, j;
+	int v, j;
 	
 	begin = clock();
-	array[0] = -100;
 	for (int i = 1; i < size; ++i)
 	{
 		v = array[i];
 		j = i - 1;
-		while(array[j] > v)
+		while(j >= 0 && array[j] > v)
 		{ 
 			array[j + 1] = array[j];
 			--j;
 		}
 		array[j + 1] = v;
 	} 
-	j = 1;
-	while(array[j] < temp)
-	{  
-		array[j - 1] = array[j];
-		++j;
-	} 
-	array[j - 1] = temp;
 	end = clock();
 	
 	time = (double)(end - begin) / (CLOCKS_PER_SEC / 1000);
@@ -629,7 +613,7 @@ void ShakerSort_time(int* array, int size)
 				k = j;
 			}
 		if (!swapped)
-			return;
+			break;
 		right = k;
 		swapped = 0;
 		for (int j = right; j > left; --j)
@@ -640,7 +624,7 @@ void ShakerSort_time(int* array, int size)
 				k = j;
 			}
 		if (!swapped)
-			return;
+			break;
 		left = k;
 	}
 	end = clock();
