@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <vector>
+
 #include "sort.h"
 
 using namespace std;
